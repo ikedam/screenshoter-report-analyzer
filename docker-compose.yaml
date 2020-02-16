@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/bower_components
+    working_dir: /app
+    environment:
+      - TRAVIS=1
+      - http_proxy
+      - https_proxy
+      - no_proxy
